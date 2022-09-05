@@ -15,12 +15,13 @@ def get_argparser() -> argparse.ArgumentParser:
 
 
 def get_openai_text(idea: str):
-    text: str = openai.Completion.create(
+    response = openai.Completion.create(
         model="davinci-instruct-beta-v3",
-        prompt=f"Generate a snippet about a cat {idea}:",
+        prompt=f"Generate nicknames for a cat named {idea}:",
         max_tokens=32,
         temperature=0,
-    )["choices"][0]["text"]
+    )
+    text: str = response["choices"][0]["text"]
     text = text.strip()
     if text[-1] not in "?!.":
         text += "..."
