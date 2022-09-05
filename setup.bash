@@ -1,2 +1,3 @@
-pwd > .env/lib/python3.9/site-packages/env.pth
-. set_secret_key.bash
+python -m venv .env-ytsaas
+pwd > .env-ytsaas/lib/python3.9/site-packages/ytsaas.pth
+. app/set_secret_key.bash
