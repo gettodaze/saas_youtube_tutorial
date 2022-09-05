@@ -10,11 +10,11 @@ openai.api_key = OPENAI_API_KEY
 
 def get_argparser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
-    parser.add_argument("idea", type=str)
+    parser.add_argument("prompt", type=str)
     return parser
 
 
-def get_openai_text(idea: str):
+def get_cat_nicknames(idea: str):
     response = openai.Completion.create(
         model="davinci-instruct-beta-v3",
         prompt=f"Generate nicknames for a cat named {idea}:",
